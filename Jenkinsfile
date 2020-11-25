@@ -4,6 +4,13 @@ pipeLine{
 
     stages{
 
+        stage ('main') {
+            
+            steps {
+                echo 'building the app...'
+            }
+        }
+
         stage ("Build") {
             
             steps {
