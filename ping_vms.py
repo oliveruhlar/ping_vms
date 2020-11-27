@@ -46,7 +46,7 @@ print_ifconffig(vm_u2)
 print('\n', "Ping Vms before setting IPs for Internal network",'\n')
 
 print('ping VM n.1 -> VM n.2')
-ping_vms(vm_u,"10.2.0.21")
+ping_vms(vm_u,"10.2.0.23")
 
 print('ping VM n.2 -> VM n.1')
 ping_vms(vm_u2,"10.2.0.22")
@@ -59,18 +59,16 @@ set_ip(vm_u,"10.2.0.22")
 print_ifconffig(vm_u)
 
 print("VM n.2")
-vm_u2.exec_command('sudo ifconfig enp0s8 10.2.0.21 up')
-vm_u2.exec_command('sudo service network-manager restart')
-time.sleep(1)
+set_ip(vm_u2,"10.2.0.23")
 print_ifconffig(vm_u2)
 
 print('\n',"Ping VMs between each other",'\n')
 
 print('ping VM n.1 -> VM n.2')
-ping_vms(vm_u,"10.2.0.21")
+ping_vms(vm_u,"10.2.0.23")
 
 print('ping VM n.2 -> VM n.1')
-ping_vms(vm_u2,"10.2.0.20")
+ping_vms(vm_u2,"10.2.0.22")
 
 vm_u.close()
 vm_u2.close()
