@@ -49,7 +49,7 @@ print('ping VM n.1 -> VM n.2')
 ping_vms(vm_u,"10.2.0.21")
 
 print('ping VM n.2 -> VM n.1')
-ping_vms(vm_u2,"10.2.0.20")
+ping_vms(vm_u2,"10.2.0.22")
 
 
 print('\n',"Interface configuration after setting interfaces and ip for Internal Network",'\n')
