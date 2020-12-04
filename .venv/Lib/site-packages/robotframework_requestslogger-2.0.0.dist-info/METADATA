@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: robotframework-requestslogger
+Version: 2.0.0
+Summary: Robot Framework Requests Logging Library
+Home-page: https://github.com/peterservice-rnd/robotframework-requestslogger
+Author: JSC PETER-SERVICE
+Author-email: mf_aist_all@billing.ru
+License: Apache License 2.0
+Keywords: testing testautomation robotframework logging autotest requests http
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Framework :: Robot Framework :: Library
+Requires-Dist: robotframework
+Requires-Dist: six
+Requires-Dist: functools32 (>=3.2.3-2) ; python_version<"3.2"
+
+RobotFramework Requests Logging Library
+=======================================
+
+|Build Status|
+
+Short Description
+-----------------
+
+`Robot Framework`_ library for logging HTTP requests and responses, based on `Requests`_ library.
+
+Installation
+------------
+
+::
+
+    pip install robotframework-requestslogger
+
+Documentation
+-------------
+
+See keyword documentation for robotframework-requestslogger library in
+folder ``docs``.
+
+Example
+-------
++-------------+--------------------------------+-----------------------------+------------------------+----------+
+| Test cases  |              Action            |           Argument          |        Argument        | Argument |
++=============+================================+=============================+========================+==========+
+| Simple Test | RequestsLibrary.Create session | Alias                       | http://www.example.com |          |
++-------------+--------------------------------+-----------------------------+------------------------+----------+
+|             | ${response}=                   | RequestsLibrary.Get request | Alias                  | /        |
++-------------+--------------------------------+-----------------------------+------------------------+----------+
+|             | RequestsLogger.Write log       | ${response}                 |                        |          |
++-------------+--------------------------------+-----------------------------+------------------------+----------+
+
+
+License
+-------
+
+Apache License 2.0
+
+.. _Robot Framework: http://www.robotframework.org
+.. _Requests: http://docs.python-requests.org/en/latest
+
+.. |Build Status| image:: https://travis-ci.org/peterservice-rnd/robotframework-requestslogger.svg?branch=master
+   :target: https://travis-ci.org/peterservice-rnd/robotframework-requestslogger
+
