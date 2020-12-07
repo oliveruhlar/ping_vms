@@ -9,7 +9,7 @@ Suite Teardown  Teardown vms
 
 *** Test Cases ***
 NIC config before setting NIC
-    Sleep  40s 	Waiting for Vms to boot up. 	
+    Sleep  50s 	Waiting for Vms to boot up. 	
     ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  print_nic.py  runserver
     Should Be Empty  ${result.stderr}  msg=${result.stderr}
     Log  ${result.stdout}
