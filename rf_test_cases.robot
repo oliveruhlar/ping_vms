@@ -3,7 +3,7 @@ Library  OperatingSystem
 Library  Process
 Library  Collections
 Suite Setup    Start vms
-
+Suite Teardown  Teardown vms
 *** Variables ***
 
 
@@ -38,6 +38,8 @@ NIC config after setting NIC
 
 *** Keywords ***
 Start vms
-    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_1  --startvm  {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7}
-    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_2  --startvm  {dbe30ee1-7145-48e6-9a9a-2a7c6b910257}
-
+    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_1  --startvm  {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7}  alias=vm1
+    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_2  --startvm  {dbe30ee1-7145-48e6-9a9a-2a7c6b910257}  alias=vm2
+Teardown vms    
+    Terminate process  vm1  kill=true
+    Terminate process  vm2  kill=true
