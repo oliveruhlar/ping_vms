@@ -31,6 +31,12 @@ Set NIC
     Log  ${result.stdout}
     Log  ${ifconfig.stdout}
 
+Ping VMs after setting NIC	
+    ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  try_ping.py  runserver
+    Should Be Empty  ${result.stderr}  msg=${result.stderr}
+    Should Contain X Times  ${result.stdout}  0% packet loss  2  msg=Ping successful
+    Log  ${result.stdout}
+
 NIC config after setting NIC
     ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  print_nic.py  runserver
     Should Be Empty  ${result.stderr}  msg=${result.stderr}
