@@ -2,14 +2,15 @@
 Library  OperatingSystem
 Library  Process
 Library  Collections
+
 Suite Setup    Start vms
 Suite Teardown  Teardown vms
 *** Variables ***
 
-
 *** Test Cases ***
 NIC config before setting NIC
-    Sleep  50s 	Waiting for Vms to boot up. 	
+    Wait Until Keyword Succeeds  1min   5s   Are booted
+    #Sleep  50s 	Waiting for Vms to boot up. 	
     ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  print_nic.py  runserver
     Should Be Empty  ${result.stderr}  msg=${result.stderr}
     Log  ${result.stdout}
@@ -43,6 +44,10 @@ NIC config after setting NIC
     Log  ${result.stdout}
 
 *** Keywords ***
+Are booted
+    ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  print_nic.py  runserver
+    Should Be Empty  ${result.stderr}  msg=${result.stderr}
+
 Start vms
     Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_1  --startvm  {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7}  alias=vm1
     Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_2  --startvm  {dbe30ee1-7145-48e6-9a9a-2a7c6b910257}  alias=vm2
