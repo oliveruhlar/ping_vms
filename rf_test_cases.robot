@@ -9,7 +9,7 @@ Suite Teardown  Teardown vms
 
 *** Test Cases ***
 NIC config before setting NIC
-    Wait Until Keyword Succeeds  1min   5s   Are booted
+    Wait Until Keyword Succeeds  2min   10s   Are booted
     #Sleep  50s 	Waiting for Vms to boot up. 	
     ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  print_nic.py  runserver
     Should Be Empty  ${result.stderr}  msg=${result.stderr}
@@ -49,8 +49,8 @@ Are booted
     Should Be Empty  ${result.stderr}  msg=${result.stderr}
 
 Start vms
-    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_1  --startvm  {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7}  alias=vm1
-    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VirtualBoxVM.exe  --comment  ubuntu_2  --startvm  {dbe30ee1-7145-48e6-9a9a-2a7c6b910257}  alias=vm2
+    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe  startvm  ubuntu_1  {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7}  --type  headless
+    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe  startvm  ubuntu_2  {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7}  --type  headless
 Teardown vms    
-    Terminate process  vm1  kill=true
-    Terminate process  vm2  kill=true
+    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe  controlvm  ubuntu_1  poweroff
+    Start process     C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe  controlvm  ubuntu_2  poweroff
