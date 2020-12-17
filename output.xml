@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201214 09:40:19.418" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201217 08:30:44.106" rpa="false">
 <suite id="s1" name="Rf Test Cases" source="C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\rf_test_cases.robot">
 <kw name="Start vms" type="setup">
 <kw name="Start Process" library="Process">
@@ -12,9 +12,9 @@
 <arg>--type</arg>
 <arg>headless</arg>
 </arguments>
-<msg timestamp="20201214 09:40:19.469" level="INFO">Starting process:
+<msg timestamp="20201217 08:30:44.139" level="INFO">Starting process:
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm ubuntu_1 {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7} --type headless</msg>
-<status status="PASS" starttime="20201214 09:40:19.469" endtime="20201214 09:40:19.471"></status>
+<status status="PASS" starttime="20201217 08:30:44.138" endtime="20201217 08:30:44.141"></status>
 </kw>
 <kw name="Start Process" library="Process">
 <doc>Starts a new process on background.</doc>
@@ -26,11 +26,11 @@
 <arg>--type</arg>
 <arg>headless</arg>
 </arguments>
-<msg timestamp="20201214 09:40:19.472" level="INFO">Starting process:
+<msg timestamp="20201217 08:30:44.142" level="INFO">Starting process:
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm ubuntu_2 {c0382caa-6ce6-4fd3-aab4-77ea96bff7f7} --type headless</msg>
-<status status="PASS" starttime="20201214 09:40:19.471" endtime="20201214 09:40:19.474"></status>
+<status status="PASS" starttime="20201217 08:30:44.141" endtime="20201217 08:30:44.144"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:40:19.469" endtime="20201214 09:40:19.475"></status>
+<status status="PASS" starttime="20201217 08:30:44.138" endtime="20201217 08:30:44.144"></status>
 </kw>
 <test id="s1-t1" name="NIC config before setting NIC">
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
@@ -51,12 +51,12 @@
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:40:19.477" level="INFO">Starting process:
+<msg timestamp="20201217 08:30:44.146" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:40:19.479" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:40:40.876" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:40:40.876" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
-<status status="PASS" starttime="20201214 09:40:19.476" endtime="20201214 09:40:40.876"></status>
+<msg timestamp="20201217 08:30:44.149" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:30:59.529" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:30:59.529" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
+<status status="PASS" starttime="20201217 08:30:44.146" endtime="20201217 08:30:59.529"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -64,20 +64,16 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:40:40.878" level="INFO">Length is 931</msg>
-<msg timestamp="20201214 09:40:40.878" level="FAIL">Traceback (most recent call last):
+<msg timestamp="20201217 08:30:59.530" level="INFO">Length is 496</msg>
+<msg timestamp="20201217 08:30:59.530" level="FAIL">Traceback (most recent call last):
   File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\print_nic.py", line 24, in &lt;module&gt;
     vm_u.connect('192.168.56.2',port=22, username='oliveruhlar', password='', key_filename='w_rsa')
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 349, in connect
-    retry_on_signal(lambda: sock.connect(addr))
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\util.py", line 283, in retry_on_signal
-    return function()
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 349, in &lt;lambda&gt;
-    retry_on_signal(lambda: sock.connect(addr))
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond</msg>
-<status status="FAIL" starttime="20201214 09:40:40.877" endtime="20201214 09:40:40.878"></status>
+  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 368, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.56.2</msg>
+<status status="FAIL" starttime="20201217 08:30:59.530" endtime="20201217 08:30:59.530"></status>
 </kw>
-<status status="FAIL" starttime="20201214 09:40:19.476" endtime="20201214 09:40:40.878"></status>
+<status status="FAIL" starttime="20201217 08:30:44.145" endtime="20201217 08:30:59.530"></status>
 </kw>
 <kw name="Are booted">
 <kw name="Run Process" library="Process">
@@ -90,12 +86,12 @@ TimeoutError: [WinError 10060] A connection attempt failed because the connected
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:40:50.880" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:09.532" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:40:50.885" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:41:12.388" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:41:12.388" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
-<status status="PASS" starttime="20201214 09:40:50.880" endtime="20201214 09:41:12.388"></status>
+<msg timestamp="20201217 08:31:09.534" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:10.590" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:10.590" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:09.531" endtime="20201217 08:31:10.590"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -103,90 +99,12 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:41:12.389" level="INFO">Length is 931</msg>
-<msg timestamp="20201214 09:41:12.389" level="FAIL">Traceback (most recent call last):
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\print_nic.py", line 24, in &lt;module&gt;
-    vm_u.connect('192.168.56.2',port=22, username='oliveruhlar', password='', key_filename='w_rsa')
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 349, in connect
-    retry_on_signal(lambda: sock.connect(addr))
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\util.py", line 283, in retry_on_signal
-    return function()
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 349, in &lt;lambda&gt;
-    retry_on_signal(lambda: sock.connect(addr))
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond</msg>
-<status status="FAIL" starttime="20201214 09:41:12.388" endtime="20201214 09:41:12.389"></status>
+<msg timestamp="20201217 08:31:10.591" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20201217 08:31:10.591" endtime="20201217 08:31:10.592"></status>
 </kw>
-<status status="FAIL" starttime="20201214 09:40:50.879" endtime="20201214 09:41:12.390"></status>
+<status status="PASS" starttime="20201217 08:31:09.531" endtime="20201217 08:31:10.592"></status>
 </kw>
-<kw name="Are booted">
-<kw name="Run Process" library="Process">
-<doc>Runs a process and waits for it to complete.</doc>
-<arguments>
-<arg>C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe</arg>
-<arg>print_nic.py</arg>
-<arg>runserver</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20201214 09:41:22.394" level="INFO">Starting process:
-C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:41:22.401" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:41:43.933" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:41:43.933" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
-<status status="PASS" starttime="20201214 09:41:22.393" endtime="20201214 09:41:43.934"></status>
-</kw>
-<kw name="Should Be Empty" library="BuiltIn">
-<doc>Verifies that the given item is empty.</doc>
-<arguments>
-<arg>${result.stderr}</arg>
-<arg>msg=${result.stderr}</arg>
-</arguments>
-<msg timestamp="20201214 09:41:43.934" level="INFO">Length is 931</msg>
-<msg timestamp="20201214 09:41:43.934" level="FAIL">Traceback (most recent call last):
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\print_nic.py", line 24, in &lt;module&gt;
-    vm_u.connect('192.168.56.2',port=22, username='oliveruhlar', password='', key_filename='w_rsa')
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 349, in connect
-    retry_on_signal(lambda: sock.connect(addr))
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\util.py", line 283, in retry_on_signal
-    return function()
-  File "C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\lib\site-packages\paramiko\client.py", line 349, in &lt;lambda&gt;
-    retry_on_signal(lambda: sock.connect(addr))
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond</msg>
-<status status="FAIL" starttime="20201214 09:41:43.934" endtime="20201214 09:41:43.935"></status>
-</kw>
-<status status="FAIL" starttime="20201214 09:41:22.391" endtime="20201214 09:41:43.935"></status>
-</kw>
-<kw name="Are booted">
-<kw name="Run Process" library="Process">
-<doc>Runs a process and waits for it to complete.</doc>
-<arguments>
-<arg>C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe</arg>
-<arg>print_nic.py</arg>
-<arg>runserver</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20201214 09:41:53.938" level="INFO">Starting process:
-C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:41:53.946" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:41:55.127" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:41:55.127" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:41:53.937" endtime="20201214 09:41:55.127"></status>
-</kw>
-<kw name="Should Be Empty" library="BuiltIn">
-<doc>Verifies that the given item is empty.</doc>
-<arguments>
-<arg>${result.stderr}</arg>
-<arg>msg=${result.stderr}</arg>
-</arguments>
-<msg timestamp="20201214 09:41:55.128" level="INFO">Length is 0</msg>
-<status status="PASS" starttime="20201214 09:41:55.127" endtime="20201214 09:41:55.128"></status>
-</kw>
-<status status="PASS" starttime="20201214 09:41:53.935" endtime="20201214 09:41:55.128"></status>
-</kw>
-<status status="PASS" starttime="20201214 09:40:19.476" endtime="20201214 09:41:55.128"></status>
+<status status="PASS" starttime="20201217 08:30:44.145" endtime="20201217 08:31:10.592"></status>
 </kw>
 <kw name="Run Process" library="Process">
 <doc>Runs a process and waits for it to complete.</doc>
@@ -198,12 +116,12 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:41:55.129" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:10.593" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:41:55.132" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:41:56.088" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:41:56.088" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:41:55.129" endtime="20201214 09:41:56.088"></status>
+<msg timestamp="20201217 08:31:10.596" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:11.637" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:11.637" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:10.593" endtime="20201217 08:31:11.638"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -211,15 +129,15 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:41:56.089" level="INFO">Length is 0</msg>
-<status status="PASS" starttime="20201214 09:41:56.089" endtime="20201214 09:41:56.089"></status>
+<msg timestamp="20201217 08:31:11.640" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20201217 08:31:11.639" endtime="20201217 08:31:11.640"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${result.stdout}</arg>
 </arguments>
-<msg timestamp="20201214 09:41:56.090" level="INFO">
+<msg timestamp="20201217 08:31:11.641" level="INFO">
  VM n1
 +----------+--------------+
 | NIC name |     IPv4     |
@@ -235,9 +153,9 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 |  enp0s3  |  10.0.2.15   |
 |  enp0s8  | 192.168.56.3 |
 +----------+--------------+</msg>
-<status status="PASS" starttime="20201214 09:41:56.090" endtime="20201214 09:41:56.090"></status>
+<status status="PASS" starttime="20201217 08:31:11.640" endtime="20201217 08:31:11.641"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:40:19.475" endtime="20201214 09:41:56.091" critical="yes"></status>
+<status status="PASS" starttime="20201217 08:30:44.144" endtime="20201217 08:31:11.642" critical="yes"></status>
 </test>
 <test id="s1-t2" name="Ping VMs before setting NIC">
 <kw name="Run Process" library="Process">
@@ -250,12 +168,12 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:41:56.093" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:11.647" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_ping.py runserver</msg>
-<msg timestamp="20201214 09:41:56.095" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:42:20.845" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:42:20.845" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:41:56.092" endtime="20201214 09:42:20.845"></status>
+<msg timestamp="20201217 08:31:11.651" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:27.351" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:27.351" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:11.647" endtime="20201217 08:31:27.351"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -263,8 +181,8 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_pin
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:20.847" level="INFO">Length is 0</msg>
-<status status="PASS" starttime="20201214 09:42:20.846" endtime="20201214 09:42:20.847"></status>
+<msg timestamp="20201217 08:31:27.352" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20201217 08:31:27.352" endtime="20201217 08:31:27.352"></status>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
@@ -272,24 +190,24 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_pin
 <arg>${result.stdout}</arg>
 <arg>100% packet loss</arg>
 </arguments>
-<status status="PASS" starttime="20201214 09:42:20.848" endtime="20201214 09:42:20.848"></status>
+<status status="PASS" starttime="20201217 08:31:27.353" endtime="20201217 08:31:27.353"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${result.stdout}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:20.848" level="INFO">
+<msg timestamp="20201217 08:31:27.354" level="INFO">
  ping VM n1 -&gt; VM n2 
 
-['PING 10.2.0.24 (10.2.0.24) 56(84) bytes of data.\n', '\n', '--- 10.2.0.24 ping statistics ---\n', '3 packets transmitted, 0 received, 100% packet loss, time 2058ms\n', '\n']
+['PING 10.2.0.24 (10.2.0.24) 56(84) bytes of data.\n', '\n', '--- 10.2.0.24 ping statistics ---\n', '3 packets transmitted, 0 received, 100% packet loss, time 2054ms\n', '\n']
 
  ping VM n2 -&gt; VM n1 
 
-['PING 10.2.0.23 (10.2.0.23) 56(84) bytes of data.\n', '\n', '--- 10.2.0.23 ping statistics ---\n', '3 packets transmitted, 0 received, 100% packet loss, time 2051ms\n', '\n']</msg>
-<status status="PASS" starttime="20201214 09:42:20.848" endtime="20201214 09:42:20.848"></status>
+['PING 10.2.0.23 (10.2.0.23) 56(84) bytes of data.\n', 'From 93.184.71.54 icmp_seq=1 Destination Host Unreachable\n', 'From 93.184.71.54 icmp_seq=2 Destination Host Unreachable\n', 'From 93.184.71.54 icmp_seq=3 Destination Host Unreachable\n', '\n', '--- 10.2.0.23 ping statistics ---\n', '3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2033ms\n', 'pipe 3\n']</msg>
+<status status="PASS" starttime="20201217 08:31:27.353" endtime="20201217 08:31:27.354"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:41:56.092" endtime="20201214 09:42:20.849" critical="yes"></status>
+<status status="PASS" starttime="20201217 08:31:11.645" endtime="20201217 08:31:27.354" critical="yes"></status>
 </test>
 <test id="s1-t3" name="Set NIC">
 <kw name="Run Process" library="Process">
@@ -302,12 +220,12 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_pin
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:42:20.851" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:27.357" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe set_nic.py runserver</msg>
-<msg timestamp="20201214 09:42:20.854" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:42:24.702" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:42:24.702" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:42:20.851" endtime="20201214 09:42:24.702"></status>
+<msg timestamp="20201217 08:31:27.361" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:30.829" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:30.830" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:27.357" endtime="20201217 08:31:30.830"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -315,8 +233,8 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe set_nic
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:24.703" level="INFO">Length is 0</msg>
-<status status="PASS" starttime="20201214 09:42:24.703" endtime="20201214 09:42:24.704"></status>
+<msg timestamp="20201217 08:31:30.831" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20201217 08:31:30.830" endtime="20201217 08:31:30.831"></status>
 </kw>
 <kw name="Run Process" library="Process">
 <doc>Runs a process and waits for it to complete.</doc>
@@ -328,12 +246,12 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe set_nic
 <assign>
 <var>${ifconfig}</var>
 </assign>
-<msg timestamp="20201214 09:42:24.705" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:30.832" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:42:24.708" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:42:25.589" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:42:25.589" level="INFO">${ifconfig} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:42:24.704" endtime="20201214 09:42:25.589"></status>
+<msg timestamp="20201217 08:31:30.834" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:31.311" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:31.311" level="INFO">${ifconfig} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:30.831" endtime="20201217 08:31:31.311"></status>
 </kw>
 <kw name="Should Contain X Times" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` ``count`` times.</doc>
@@ -343,8 +261,8 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>2</arg>
 <arg>msg=Setting NIC was unsuccessful</arg>
 </arguments>
-<msg timestamp="20201214 09:42:25.591" level="INFO">Item found from container 2 times.</msg>
-<status status="PASS" starttime="20201214 09:42:25.590" endtime="20201214 09:42:25.591"></status>
+<msg timestamp="20201217 08:31:31.312" level="INFO">Item found from container 2 times.</msg>
+<status status="PASS" starttime="20201217 08:31:31.312" endtime="20201217 08:31:31.312"></status>
 </kw>
 <kw name="Should Contain X Times" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` ``count`` times.</doc>
@@ -354,8 +272,8 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>2</arg>
 <arg>msg=Setting NIC was unsuccessful</arg>
 </arguments>
-<msg timestamp="20201214 09:42:25.592" level="INFO">Item found from container 2 times.</msg>
-<status status="PASS" starttime="20201214 09:42:25.591" endtime="20201214 09:42:25.592"></status>
+<msg timestamp="20201217 08:31:31.313" level="INFO">Item found from container 2 times.</msg>
+<status status="PASS" starttime="20201217 08:31:31.312" endtime="20201217 08:31:31.313"></status>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
@@ -365,7 +283,7 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>msg=Setting NIC for VM n1 was unsuccessful</arg>
 <arg>values=False</arg>
 </arguments>
-<status status="PASS" starttime="20201214 09:42:25.592" endtime="20201214 09:42:25.593"></status>
+<status status="PASS" starttime="20201217 08:31:31.313" endtime="20201217 08:31:31.313"></status>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
@@ -375,23 +293,23 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>msg=Setting NIC for VM n2 was unsuccessful</arg>
 <arg>values=False</arg>
 </arguments>
-<status status="PASS" starttime="20201214 09:42:25.593" endtime="20201214 09:42:25.594"></status>
+<status status="PASS" starttime="20201217 08:31:31.314" endtime="20201217 08:31:31.314"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${result.stdout}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:25.594" level="INFO">Setting NIC for VM n1 was successful
+<msg timestamp="20201217 08:31:31.315" level="INFO">Setting NIC for VM n1 was successful
 Setting NIC for VM n2 was successful</msg>
-<status status="PASS" starttime="20201214 09:42:25.594" endtime="20201214 09:42:25.595"></status>
+<status status="PASS" starttime="20201217 08:31:31.314" endtime="20201217 08:31:31.315"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${ifconfig.stdout}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:25.595" level="INFO">
+<msg timestamp="20201217 08:31:31.315" level="INFO">
  VM n1
 +----------+--------------+
 | NIC name |     IPv4     |
@@ -409,9 +327,9 @@ Setting NIC for VM n2 was successful</msg>
 |  enp0s8  | 192.168.56.3 |
 |  enp0s9  |  10.2.0.24   |
 +----------+--------------+</msg>
-<status status="PASS" starttime="20201214 09:42:25.595" endtime="20201214 09:42:25.595"></status>
+<status status="PASS" starttime="20201217 08:31:31.315" endtime="20201217 08:31:31.315"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:42:20.851" endtime="20201214 09:42:25.595" critical="yes"></status>
+<status status="PASS" starttime="20201217 08:31:27.357" endtime="20201217 08:31:31.316" critical="yes"></status>
 </test>
 <test id="s1-t4" name="Ping VMs after setting NIC">
 <kw name="Run Process" library="Process">
@@ -424,12 +342,12 @@ Setting NIC for VM n2 was successful</msg>
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:42:25.599" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:31.318" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_ping.py runserver</msg>
-<msg timestamp="20201214 09:42:25.603" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:42:30.248" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:42:30.248" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:42:25.598" endtime="20201214 09:42:30.248"></status>
+<msg timestamp="20201217 08:31:31.319" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:35.793" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:35.793" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:31.317" endtime="20201217 08:31:35.793"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -437,8 +355,8 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_pin
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:30.249" level="INFO">Length is 0</msg>
-<status status="PASS" starttime="20201214 09:42:30.249" endtime="20201214 09:42:30.249"></status>
+<msg timestamp="20201217 08:31:35.794" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20201217 08:31:35.794" endtime="20201217 08:31:35.794"></status>
 </kw>
 <kw name="Should Contain X Times" library="BuiltIn">
 <doc>Fails if ``container`` does not contain ``item`` ``count`` times.</doc>
@@ -448,25 +366,25 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_pin
 <arg>2</arg>
 <arg>msg=Ping successful</arg>
 </arguments>
-<msg timestamp="20201214 09:42:30.250" level="INFO">Item found from container 2 times.</msg>
-<status status="PASS" starttime="20201214 09:42:30.250" endtime="20201214 09:42:30.250"></status>
+<msg timestamp="20201217 08:31:35.795" level="INFO">Item found from container 2 times.</msg>
+<status status="PASS" starttime="20201217 08:31:35.795" endtime="20201217 08:31:35.795"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${result.stdout}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:30.251" level="INFO">
+<msg timestamp="20201217 08:31:35.796" level="INFO">
  ping VM n1 -&gt; VM n2 
 
-['PING 10.2.0.24 (10.2.0.24) 56(84) bytes of data.\n', '64 bytes from 10.2.0.24: icmp_seq=1 ttl=64 time=1.17 ms\n', '64 bytes from 10.2.0.24: icmp_seq=2 ttl=64 time=17.5 ms\n', '64 bytes from 10.2.0.24: icmp_seq=3 ttl=64 time=1.24 ms\n', '\n', '--- 10.2.0.24 ping statistics ---\n', '3 packets transmitted, 3 received, 0% packet loss, time 2005ms\n', 'rtt min/avg/max/mdev = 1.167/6.623/17.465/7.666 ms\n']
+['PING 10.2.0.24 (10.2.0.24) 56(84) bytes of data.\n', '64 bytes from 10.2.0.24: icmp_seq=1 ttl=64 time=0.506 ms\n', '64 bytes from 10.2.0.24: icmp_seq=2 ttl=64 time=0.687 ms\n', '64 bytes from 10.2.0.24: icmp_seq=3 ttl=64 time=1.08 ms\n', '\n', '--- 10.2.0.24 ping statistics ---\n', '3 packets transmitted, 3 received, 0% packet loss, time 4015ms\n', 'rtt min/avg/max/mdev = 0.506/0.756/1.075/0.237 ms\n']
 
  ping VM n2 -&gt; VM n1 
 
-['PING 10.2.0.23 (10.2.0.23) 56(84) bytes of data.\n', '64 bytes from 10.2.0.23: icmp_seq=1 ttl=64 time=1.06 ms\n', '64 bytes from 10.2.0.23: icmp_seq=2 ttl=64 time=0.857 ms\n', '64 bytes from 10.2.0.23: icmp_seq=3 ttl=64 time=0.989 ms\n', '\n', '--- 10.2.0.23 ping statistics ---\n', '3 packets transmitted, 3 received, 0% packet loss, time 2010ms\n', 'rtt min/avg/max/mdev = 0.857/0.970/1.064/0.085 ms\n']</msg>
-<status status="PASS" starttime="20201214 09:42:30.251" endtime="20201214 09:42:30.251"></status>
+['PING 10.2.0.23 (10.2.0.23) 56(84) bytes of data.\n', '64 bytes from 10.2.0.23: icmp_seq=1 ttl=64 time=0.958 ms\n', '64 bytes from 10.2.0.23: icmp_seq=2 ttl=64 time=1.15 ms\n', '64 bytes from 10.2.0.23: icmp_seq=3 ttl=64 time=0.932 ms\n', '\n', '--- 10.2.0.23 ping statistics ---\n', '3 packets transmitted, 3 received, 0% packet loss, time 2013ms\n', 'rtt min/avg/max/mdev = 0.932/1.014/1.154/0.099 ms\n']</msg>
+<status status="PASS" starttime="20201217 08:31:35.796" endtime="20201217 08:31:35.796"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:42:25.597" endtime="20201214 09:42:30.252" critical="yes"></status>
+<status status="PASS" starttime="20201217 08:31:31.317" endtime="20201217 08:31:35.796" critical="yes"></status>
 </test>
 <test id="s1-t5" name="NIC config after setting NIC">
 <kw name="Run Process" library="Process">
@@ -479,12 +397,12 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe try_pin
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201214 09:42:30.255" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:35.800" level="INFO">Starting process:
 C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_nic.py runserver</msg>
-<msg timestamp="20201214 09:42:30.258" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20201214 09:42:31.096" level="INFO">Process completed.</msg>
-<msg timestamp="20201214 09:42:31.096" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<status status="PASS" starttime="20201214 09:42:30.255" endtime="20201214 09:42:31.096"></status>
+<msg timestamp="20201217 08:31:35.802" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20201217 08:31:36.780" level="INFO">Process completed.</msg>
+<msg timestamp="20201217 08:31:36.780" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20201217 08:31:35.800" endtime="20201217 08:31:36.780"></status>
 </kw>
 <kw name="Should Be Empty" library="BuiltIn">
 <doc>Verifies that the given item is empty.</doc>
@@ -492,15 +410,15 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>${result.stderr}</arg>
 <arg>msg=${result.stderr}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:31.097" level="INFO">Length is 0</msg>
-<status status="PASS" starttime="20201214 09:42:31.097" endtime="20201214 09:42:31.097"></status>
+<msg timestamp="20201217 08:31:36.781" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20201217 08:31:36.781" endtime="20201217 08:31:36.781"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${result.stdout}</arg>
 </arguments>
-<msg timestamp="20201214 09:42:31.098" level="INFO">
+<msg timestamp="20201217 08:31:36.782" level="INFO">
  VM n1
 +----------+--------------+
 | NIC name |     IPv4     |
@@ -518,9 +436,9 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 |  enp0s8  | 192.168.56.3 |
 |  enp0s9  |  10.2.0.24   |
 +----------+--------------+</msg>
-<status status="PASS" starttime="20201214 09:42:31.098" endtime="20201214 09:42:31.098"></status>
+<status status="PASS" starttime="20201217 08:31:36.781" endtime="20201217 08:31:36.782"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:42:30.254" endtime="20201214 09:42:31.099" critical="yes"></status>
+<status status="PASS" starttime="20201217 08:31:35.799" endtime="20201217 08:31:36.782" critical="yes"></status>
 </test>
 <kw name="Teardown vms" type="teardown">
 <kw name="Start Process" library="Process">
@@ -531,9 +449,9 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>ubuntu_1</arg>
 <arg>poweroff</arg>
 </arguments>
-<msg timestamp="20201214 09:42:31.104" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:36.784" level="INFO">Starting process:
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm ubuntu_1 poweroff</msg>
-<status status="PASS" starttime="20201214 09:42:31.104" endtime="20201214 09:42:31.107"></status>
+<status status="PASS" starttime="20201217 08:31:36.784" endtime="20201217 08:31:36.786"></status>
 </kw>
 <kw name="Start Process" library="Process">
 <doc>Starts a new process on background.</doc>
@@ -543,13 +461,13 @@ C:\Users\oliver.uhlar\Desktop\Projects\ping_vms\.venv\Scripts\python.exe print_n
 <arg>ubuntu_2</arg>
 <arg>poweroff</arg>
 </arguments>
-<msg timestamp="20201214 09:42:31.108" level="INFO">Starting process:
+<msg timestamp="20201217 08:31:36.786" level="INFO">Starting process:
 "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm ubuntu_2 poweroff</msg>
-<status status="PASS" starttime="20201214 09:42:31.107" endtime="20201214 09:42:31.110"></status>
+<status status="PASS" starttime="20201217 08:31:36.786" endtime="20201217 08:31:36.788"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:42:31.103" endtime="20201214 09:42:31.110"></status>
+<status status="PASS" starttime="20201217 08:31:36.784" endtime="20201217 08:31:36.788"></status>
 </kw>
-<status status="PASS" starttime="20201214 09:40:19.422" endtime="20201214 09:42:31.110"></status>
+<status status="PASS" starttime="20201217 08:30:44.107" endtime="20201217 08:31:36.788"></status>
 </suite>
 <statistics>
 <total>

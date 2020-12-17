@@ -9,12 +9,7 @@ Suite Teardown  Teardown vms
 
 *** Test Cases ***
 NIC config before setting NIC
-<<<<<<< HEAD
-    Wait Until Keyword Succeeds  2min   10s   Are booted
-=======
-    Wait Until Keyword Succeeds  2min   5s   Are booted
->>>>>>> 8f17f0b1c8bfcc6b45198b0f4cb14e241612ef07
-    #Sleep  50s 	Waiting for Vms to boot up. 	
+    Wait Until Keyword Succeeds  2min   10s   Are booted	
     ${result} =  Run Process  C:\\Users\\oliver.uhlar\\Desktop\\Projects\\ping_vms\\.venv\\Scripts\\python.exe  print_nic.py  runserver
     Should Be Empty  ${result.stderr}  msg=${result.stderr}
     Log  ${result.stdout}
